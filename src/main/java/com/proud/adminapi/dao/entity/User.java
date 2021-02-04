@@ -11,7 +11,7 @@ public class User {
   private String userId;
   private String password;
   private String company;
-  private String type;
+  private String roleType;
   private String roleId;
   private String activeFlg;
   private Timestamp createAt;
@@ -60,13 +60,13 @@ public class User {
   }
 
   @Basic
-  @Column(name = "type")
-  public String getType() {
-    return type;
+  @Column(name = "role_type")
+  public String getRoleType() {
+    return roleType;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setRoleType(String roleType) {
+    this.roleType = roleType;
   }
 
   @Basic
@@ -138,7 +138,7 @@ public class User {
             Objects.equals(userId, user.userId) &&
             Objects.equals(password, user.password) &&
             Objects.equals(company, user.company) &&
-            Objects.equals(type, user.type) &&
+            Objects.equals(roleType, user.roleType) &&
             Objects.equals(roleId, user.roleId) &&
             Objects.equals(activeFlg, user.activeFlg) &&
             Objects.equals(createAt, user.createAt) &&
@@ -149,6 +149,6 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, password, company, type, roleId, activeFlg, createAt, createBy, updateAt, updateBy);
+    return Objects.hash(id, userId, password, company, roleType, roleId, activeFlg, createAt, createBy, updateAt, updateBy);
   }
 }

@@ -9,6 +9,9 @@ import java.util.Objects;
 public class UserDetail {
   private int id;
   private String userId;
+  private String sex;
+  private String company;
+  private String roleType;
   private String telNo;
   private String email;
   private String firstName;
@@ -21,6 +24,7 @@ public class UserDetail {
   private String trainStation;
   private Timestamp recruitAt;
   private Timestamp quitAt;
+  private String activeFlg;
   private Timestamp createAt;
   private String createBy;
   private Timestamp updateAt;
@@ -44,6 +48,36 @@ public class UserDetail {
 
   public void setUserId(String userId) {
     this.userId = userId;
+  }
+
+  @Basic
+  @Column(name = "sex")
+  public String getSex() {
+    return sex;
+  }
+
+  public void setSex(String sex) {
+    this.sex = sex;
+  }
+
+  @Basic
+  @Column(name = "company")
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  @Basic
+  @Column(name = "role_type")
+  public String getRoleType() {
+    return roleType;
+  }
+
+  public void setRoleType(String roleType) {
+    this.roleType = roleType;
   }
 
   @Basic
@@ -167,6 +201,16 @@ public class UserDetail {
   }
 
   @Basic
+  @Column(name = "active_flg")
+  public String getActiveFlg() {
+    return activeFlg;
+  }
+
+  public void setActiveFlg(String activeFlg) {
+    this.activeFlg = activeFlg;
+  }
+
+  @Basic
   @Column(name = "create_at")
   public Timestamp getCreateAt() {
     return createAt;
@@ -214,6 +258,8 @@ public class UserDetail {
     return id == that.id &&
             age == that.age &&
             Objects.equals(userId, that.userId) &&
+            Objects.equals(company, that.company) &&
+            Objects.equals(roleType, that.roleType) &&
             Objects.equals(telNo, that.telNo) &&
             Objects.equals(email, that.email) &&
             Objects.equals(firstName, that.firstName) &&
@@ -225,6 +271,7 @@ public class UserDetail {
             Objects.equals(trainStation, that.trainStation) &&
             Objects.equals(recruitAt, that.recruitAt) &&
             Objects.equals(quitAt, that.quitAt) &&
+            Objects.equals(activeFlg, that.activeFlg) &&
             Objects.equals(createAt, that.createAt) &&
             Objects.equals(createBy, that.createBy) &&
             Objects.equals(updateAt, that.updateAt) &&
@@ -233,6 +280,6 @@ public class UserDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, telNo, email, firstName, lastName, firstNameKana, lastNameKana, age, zipCode, address, trainStation, recruitAt, quitAt, createAt, createBy, updateAt, updateBy);
+    return Objects.hash(id, userId, company, roleType, telNo, email, firstName, lastName, firstNameKana, lastNameKana, age, zipCode, address, trainStation, recruitAt, quitAt, activeFlg, createAt, createBy, updateAt, updateBy);
   }
 }
